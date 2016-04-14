@@ -1,0 +1,171 @@
+@-ms-viewport{width:device-width}
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (max-width: 960px){
+  .pc {
+    display: none;
+  }
+  .sp {
+    display: block;
+  }
+  .container {
+    padding: 0 20px;
+  }
+  .menuIcon {
+    display: none;
+  }
+  #globalNav {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+    li {
+      width: 100%;
+      text-align: center;
+      margin: 5px 0;
+      &:before {
+        display: none;
+      }
+    }
+  }
+  .boxBanner {
+    height: auto;
+  }
+  .contentLeft, .contentRight {
+    width: 100%;
+  }
+  .boxConsult {
+    .formConsult {
+      width: 100%;
+    }
+  }
+  .boxSale,.boxConsult {
+    a {
+      text-align: center;
+    }
+  }
+  .boxAdv {
+    display: none;
+  }
+  .tabProduct {
+    .thumb {
+    float: none;
+    margin-right: 0;
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+    }
+  }
+  .footer {
+    .boxFooter {
+      .item {
+        &.itemLeft,&.itemMid,&.itemRight {
+          width: 100%;
+          margin-right: 0;
+          text-align: center;
+        }
+      }
+    }
+    .listSocial {
+      text-align: center;
+      margin-bottom: 10px;
+      li {
+        float: none;
+        display: inline-block;
+      }
+    }
+  }
+}
+@media only screen and (max-width:640px){
+/* Styles */
+  #globalNav {
+    padding-left: 0;
+    li {
+      display: inherit;
+      border: none;
+    }
+  }
+  .header {
+    position: relative;
+    min-height: inherit;
+    .logo {
+      float: left;
+      position: relative;
+      padding-top: 40px;
+      padding-bottom: 10px;
+    }
+  }
+  .boxSlider {
+    display: none;
+  }
+  .tabs, .proTabs {
+    position: relative;
+    li {
+      border-radius: 0px;
+    }
+  }
+  .fixedSide {
+    position: relative;
+    top: 0;
+    width: auto;
+  }
+  .container {
+    padding: 0 10px;
+  }
+  .search {
+    display: none;
+  }
+  .boxNews {
+    > .thumb {
+      width: 100%;
+    }
+    .listNews {
+      float: left;
+      width: 100%;
+      .item {
+        width: 100%;
+      }
+    }
+  }
+}
+@media only screen and (max-width:480px) {
+  .boxNews {
+    img {
+      width: 100%;
+    }
+    .listNews {
+      .thumb {
+        float: none;
+        margin-right: 0;
+        display: block;
+      }
+    }
+  }
+  .boxMedia {
+    .thumbVideo {
+      width: 100%;
+      margin-right: 0;
+    }
+    .listVideo {
+      float: left;
+      width: 100%;
+    }
+  }
+  .boxProducts .proTabs li,.tabs li, .proTabs li {
+    width: 100%;
+  }
+  .boxContact .item {
+    width: 100%;
+  }
+  .boxPaging {
+    text-align: center;
+  }
+  .boxPaging .navPaging li a {
+    padding: 0 10px;
+  }
+}
+@media only screen and (max-width:320px) {
+  .boxMedia {
+    .item {
+      width: 100%;
+    }
+  }
+}

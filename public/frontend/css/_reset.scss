@@ -1,0 +1,254 @@
+@charset "UTF-8";
+
+//trick
+@font-face {
+  font-family:"Open Sans";
+  src:url("../fonts/OpenSans-Regular.eot?") format("eot"),
+  url("../fonts/OpenSans-Regular.woff") format("woff"),
+  url("../fonts/OpenSans-Regular.ttf") format("truetype"),
+  url("../fonts/OpenSans-Regular.svg#OpenSans-Regular") format("svg");
+  font-weight:normal;font-style:normal;
+}
+
+
+/* Reset */
+@mixin transition($property: all, $duration: 0.2s, $function: ease-in-out){
+  -webkit-transition: #{$property}  #{$duration}  #{$function};
+  -moz-transition: #{$property}  #{$duration}  #{$function};
+  -ms-transition: #{$property}  #{$duration}  #{$function};
+  -o-transition: #{$property}  #{$duration}  #{$function};
+  transition: #{$property}  #{$duration}  #{$function};
+}
+@mixin animation-name($keyframe){
+  -webkit-animation-name: #{$keyframe};
+  -moz-animation-name: #{$keyframe};
+  -o-animation-name: #{$keyframe};
+  animation-name: #{$keyframe};
+}
+@mixin animation-delay($delay:0.5s){
+  -webkit-animation-delay: #{$delay};
+  animation-delay: #{$delay};
+}
+@mixin animation($animation){
+  -webkit-animation: #{$animation};
+  -moz-animation: #{$animation};
+  -o-animation: #{$animation};
+  animation: #{$animation};
+}
+/* fonts */
+$global-font: 'Open Sans';
+$font-Myriad-pro: Myriad Pro;
+$global-font-size: 13px;
+$global-line-height: 1.42;
+$global-color: #040700;
+$global-color-link: #006838;
+$global-color-hover: #d7df23;
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  background:transparent;
+  vertical-align:baseline;
+}
+b{
+  font-weight: bold;
+}
+p {
+  padding-bottom: 5px;
+}
+strong {
+  font-size: 16px;
+  display: block;
+}
+html{
+  height: 100%;
+}
+body {
+  font-family: $global-font;
+  font-size: $global-font-size;
+  line-height: $global-line-height;
+  color: $global-color;
+  background: #e9e9ea;
+  height: 100%;
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+}
+article,aside,details,figcaption,figure,
+footer,header,menu,nav,section {
+  display:block;
+}
+nav ul {
+  list-style:none;
+}
+
+a {
+  margin:0;
+  padding:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+  text-decoration:none;
+  outline: none;
+  @include transition(color,0.2s,ease);
+  color: $global-color-link;
+}
+a:hover{
+  color: $global-color-hover;
+}
+ins {
+  background-color:#ff9;
+  color:#000;
+  text-decoration:none;
+}
+mark {
+  background-color:#ff9;
+  color:#000;
+  font-style:italic;
+  font-weight:bold;
+}
+del {
+  text-decoration: line-through;
+}
+abbr[title], dfn[title] {
+  border-bottom:1px dotted;
+  cursor:help;
+}
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+/* Mixin */
+
+%clearBoth{
+  clear: both;
+}
+%clearLeft{
+  clear: left;
+}
+%cleaRight{
+  clear: right;
+}
+%overHidden{
+  overflow: hidden;
+}
+%pseudoReset{
+  display: block;
+  content: "";
+}
+%pseudoBefore{
+  @extend %pseudoReset;
+}
+%pseudoAfter{
+  @extend %pseudoReset;
+  @extend %clearBoth;
+}
+%box-sizing-border {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+%box-sizing-content{
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+@mixin border-radius($radius...){
+  -webkit-border-radius: #{$radius};
+  -moz-border-radius: #{$radius};
+  border-radius: #{$radius};
+}
+@mixin border($border) {
+  border: $border;
+}
+@mixin sprite($position){
+  background: url(../imgs/bg/sprite.png) no-repeat #{$position};
+}
+@mixin opacity($opacity: 0.8){
+  opacity: #{$opacity};
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity*100})";
+  filter: alpha(opacity=#{$opacity*100});
+}
+blockquote:before {
+  //content: open-quote;
+}
+blockquote:after {
+  //content: close-quote;
+}
+blockquote p {
+  display: inline;
+}
+input, select, textarea {
+  vertical-align:middle;
+  @include border(1px solid #b2b2b2);
+  -webkit-appearance: none;
+  font-size: 13px;
+}
+::-webkit-input-placeholder {
+  color: #919191;
+}
+:-moz-placeholder{
+  color: #919191;
+}
+::-moz-placeholder {
+  color: #919191;
+}
+:-ms-input-placeholder {
+  color: #919191;
+}
+.clearFix{
+  &:before{
+    @extend %pseudoBefore;
+  }
+  &:after{
+    @extend %pseudoAfter;
+  }
+}
+sup,sub{
+  font-size: 10px;
+}
+.clear {
+  clear: both;
+  content: "";
+}
+section,header,footer {
+  overflow: hidden;
+}
+.container {
+  @extend .clearFix;
+  max-width: 1120px;
+  position: relative;
+  margin: 0 auto;
+}
+%noSelect{
+  cursor: pointer;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.pc{
+  display: block;
+}
+.sp{
+  display: none;
+}
+
